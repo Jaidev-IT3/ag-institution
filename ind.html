@@ -1,0 +1,491 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AG Digital Institute</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#bce7f4;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#667eea,#764ba2);
+color:white;
+padding:15px 0;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+/* MAIN */
+
+main{
+margin-top:90px;
+}
+
+/* HERO */
+
+.hero{
+max-width:1200px;
+margin:auto;
+padding:40px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+/* REGISTER BLOCK */
+
+.details-block{
+background:linear-gradient(45deg,#ff6b6b,#feca57);
+padding:35px;
+border-radius:20px;
+text-align:center;
+cursor:pointer;
+animation:pulse 2s infinite;
+box-shadow:0 10px 30px rgba(255,107,107,0.4);
+}
+
+.details-block h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.details-block p{
+font-size:18px;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.05)}
+100%{transform:scale(1)}
+}
+
+/* SLIDESHOW */
+
+.slideshow-container{
+position:relative;
+height:420px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.slide{
+display:none;
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+}
+
+.slide.active{
+display:block;
+}
+
+.slide::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+}
+
+.slide-content{
+position:absolute;
+bottom:0;
+width:100%;
+padding:30px;
+color:white;
+background:linear-gradient(transparent,rgba(0,0,0,0.8));
+}
+
+.slide-content h3{
+font-size:28px;
+}
+
+/* ARROWS */
+
+.prev,.next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:30px;
+color:white;
+background:rgba(0,0,0,0.5);
+padding:10px 15px;
+cursor:pointer;
+border-radius:50%;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+/* EXPLORE */
+
+.explore-block{
+background:linear-gradient(135deg,#590266,#d20dd8);
+color:white;
+text-align:center;
+padding:40px;
+font-size:26px;
+margin:40px;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+}
+
+.modal-content{
+background:white;
+margin:3% auto;
+padding:25px;
+border-radius:20px;
+width:90%;
+max-width:900px;
+height:85vh;
+}
+
+.close{
+float:right;
+font-size:28px;
+cursor:pointer;
+}
+
+/* COURSES PAGE */
+
+.courses-page{
+display:none;
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.course-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.course-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:0.3s;
+}
+
+.course-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.course-card h3{
+color:#667eea;
+margin-bottom:10px;
+}
+
+.btn{
+background:#ff6b6b;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:25px;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.slideshow-container{
+height:300px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">AG Digital Institute</div>
+
+</nav>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+<!-- REGISTER BLOCK -->
+
+<div class="details-block" onclick="openGoogleForm()">
+
+<h2>✨ Register Now!</h2>
+
+<p>Join our EAPCET crash course</p>
+
+</div>
+
+<!-- SLIDESHOW -->
+
+<div class="slideshow-container">
+
+<div class="slide active" style="background-image:url('image/ag.jpeg')">
+
+<div class="slide-content">
+
+<h3>EAPCET – 18 March</h3>
+
+<p>Prepare Smart. Score Big.</p>
+
+</div>
+
+</div>
+
+<div class="slide" style="background-image:url('image/ag.jpeg')">
+
+<div class="slide-content">
+
+<h3>EAPCET – 19 March</h3>
+
+<p>Learn Practice Conquer.</p>
+
+</div>
+
+</div>
+
+<div class="slide" style="background-image:url('image/ag.jpeg')">
+
+<div class="slide-content">
+
+<h3>EAPCET – 20 March</h3>
+
+<p>Your Rank Your Future.</p>
+
+</div>
+
+</div>
+
+<a class="prev" onclick="changeSlide(-1)">❮</a>
+
+<a class="next" onclick="changeSlide(1)">❯</a>
+
+</div>
+
+</section>
+
+<div class="explore-block" onclick="showCourses()">
+
+🚀 Explore All Courses
+
+</div>
+
+</main>
+
+<!-- GOOGLE FORM MODAL -->
+
+<div id="googleFormModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeGoogleForm()">×</span>
+
+<h2 style="margin-bottom:15px;">Student Registration</h2>
+
+<iframe
+src="https://docs.google.com/forms/d/e/1FAIpQLSfyCMew_pSnay99vrbWUBymEWBCY3s5Tju7iGxsOxmtSJW71A/viewform?embedded=true"
+width="100%"
+height="700"
+frameborder="0"
+marginheight="0"
+marginwidth="0">
+
+Loading…
+
+</iframe>
+
+</div>
+
+</div>
+
+<!-- COURSES PAGE -->
+
+<div id="coursesPage" class="courses-page">
+
+<h1 style="text-align:center;color:#667eea;">Our Courses</h1>
+
+<div class="course-grid">
+
+<div class="course-card">
+
+<h3>🖥️ EAPCET (Starts 18 March)</h3>
+
+<p>Unlock Your Rank with Smart Preparation</p>
+
+</div>
+
+<div class="course-card">
+
+<h3>💼 EAPCET (Starts 19 March)</h3>
+
+<p>Rank Higher. Dream Bigger.</p>
+
+</div>
+
+<div class="course-card">
+
+<h3>🎨 EAPCET (Starts 20 March)</h3>
+
+<p>Crack EAPCET. Unlock Your Future.</p>
+
+</div>
+
+</div>
+
+<button class="btn" onclick="showHome()">Back</button>
+
+</div>
+
+<script>
+
+/* SLIDESHOW */
+
+let currentSlide=0;
+
+const slides=document.querySelectorAll(".slide");
+
+function nextSlide(){
+
+slides[currentSlide].classList.remove("active");
+
+currentSlide=(currentSlide+1)%slides.length;
+
+slides[currentSlide].classList.add("active");
+
+}
+
+setInterval(nextSlide,4000);
+
+function changeSlide(step){
+
+slides[currentSlide].classList.remove("active");
+
+currentSlide=(currentSlide+step+slides.length)%slides.length;
+
+slides[currentSlide].classList.add("active");
+
+}
+
+/* GOOGLE FORM */
+
+function openGoogleForm(){
+
+document.getElementById("googleFormModal").style.display="block";
+
+}
+
+function closeGoogleForm(){
+
+document.getElementById("googleFormModal").style.display="none";
+
+}
+
+/* COURSE PAGE */
+
+function showCourses(){
+
+document.querySelector("main").style.display="none";
+
+document.getElementById("coursesPage").style.display="block";
+
+}
+
+function showHome(){
+
+document.getElementById("coursesPage").style.display="none";
+
+document.querySelector("main").style.display="block";
+
+}
+
+/* CLOSE MODAL ON OUTSIDE CLICK */
+
+window.onclick=function(event){
+
+const modal=document.getElementById("googleFormModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
+```
